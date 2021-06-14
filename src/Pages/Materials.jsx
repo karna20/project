@@ -1,7 +1,7 @@
 import React from 'react';
 const Materials = () => {
     return ( <div>
-        Hello
+        Hello karna
     </div> );
 }
  

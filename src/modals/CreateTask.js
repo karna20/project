@@ -5,6 +5,7 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
+    var elements = document.getElementsByClassName('form-control'); 
 
 
     const handleChange = (e) => {
@@ -21,14 +22,19 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
             setDescription(value)
         }
     }
-
+function resetvalue() {
+   document.getElementById("1").innerText=null;
+    document.getElementById("2").innerText=null;
+    document.getElementById("3").innerText=null;
+}
     const handleSave = (e) => {
-        e.preventDefault()
         let taskObj = {}
         taskObj["Name"] = taskName
         taskObj["Description"] = description
         taskObj["Date"] = date
-        save(taskObj)
+        resetvalue();
+        toggle();
+        save(taskObj,e)
 
     }
 
@@ -36,23 +42,21 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
         <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>Create Task</ModalHeader>
             <ModalBody>
-            
                     <div className = "form-group">
                         <label>Task Name</label>
-                        <input type="text" className = "form-control" value = {taskName} onChange = {handleChange} name = "taskName"/>
+                        <input id="1" type="text" className = "form-control" value = {taskName} onChange = {handleChange} name = "taskName"/>
                     </div>
                     <div className = "form-group">
                         <label>Date</label>
-                        <input type="date" className = "form-control" value = {date} onChange = {handleChange} name = "date"/>
+                        <input id ="2" type="date" className = "form-control" value = {date} onChange = {handleChange} name = "date"/>
                     </div>
                     <div className = "form-group">
                         <label>Description</label>
-                        <textarea rows = "5" className = "form-control" value = {description} onChange = {handleChange} name = "description"></textarea>
+                        <textarea  id ="3"  rows = "5" className = "form-control" value = {description} onChange = {handleChange} name = "description"></textarea>
                     </div>
-                
             </ModalBody>
             <ModalFooter>
-            <Button color="primary" onClick={handleSave}>Create</Button>{' '}
+            <Button type = "submit"  color="primary" onClick={handleSave}>Create</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
             </ModalFooter>
       </Modal>

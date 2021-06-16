@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import { db } from '../firebase';
 import CreateTask from '../modals/CreateTask'
 import Card from './Card';
 import Card1 from './Card1';
 import './quiz.css';
 const Quiz = () => {
     const [modal, setModal] = useState(false);
-    const [taskList, setTaskList] = useState([])
+   // const [taskList, setTaskList] = useState([])
     const [ActiveList, setActiveList] = useState([])
     const [completedList, setCompletedList] = useState([])
     const [showActive,setShowActive] = useState(false)
@@ -13,53 +14,61 @@ const Quiz = () => {
     
 
     useEffect(() => {
-        let arr = localStorage.getItem("taskList")
-        if(arr){
-            let obj = JSON.parse(arr)
-            setTaskList(obj)
-        }
-        let active = localStorage.getItem("activeList")
-        if(active){
-            let obj = JSON.parse(active)
-            setActiveList(obj)
-        }
-        let completed = localStorage.getItem("completedList")
-        if(completed){
-            let obj = JSON.parse(completed)
-            setCompletedList(obj)
-        }
-        
-       
-    },[])
-
-
-    const deleteTask = (index) => {
-       
-        let tempList = taskList
-        tempList.splice(index, 1)
-        localStorage.setItem("taskList", JSON.stringify(taskList))
-        setTaskList(tempList)
-        window.location.reload()    
+        getActiveList();
+        getCompletedList();
+          },[])
+    
+    function getActiveList()
+    {
+        db.collection("activeList").onSnapshot(function (querySnapshot){
+            setActiveList(
+                querySnapshot.docs.map((doc) =>({
+                id: doc.id,
+                Name : doc.data().Name,
+                Date : doc.data().Date,
+                Description : doc.data().Description,
+            
+            }))
+            );
+            }); 
+    }
+    function getCompletedList()
+    {
+        db.collection("completedList").onSnapshot(function (querySnapshot){
+            setCompletedList(
+                querySnapshot.docs.map((doc) =>({
+                id: doc.id,
+                Name : doc.data().Name,
+                Date : doc.data().Date,
+                Description : doc.data().Description,
+            
+            }))
+            );
+            });   
     }
 
-    const updateListArray = (obj, index) => {
-        let tempList = ActiveList
-        tempList[index] = obj
-        localStorage.setItem("activeList", JSON.stringify(tempList))
-        setActiveList(tempList)
-        window.location.reload()
+    const updateListArray = (obj, id) => {
+        
+        db.collection("activeList").doc(id).update({
+            Name : obj.Name,
+            Description : obj.Description,
+            Date : obj.Date,
+        });
     }
 
     const toggle = () => {
         setModal(!modal);
     }
 
-    const saveTask = (taskObj) => {
-        let tempList = taskList
-        tempList.push(taskObj)
-        localStorage.setItem("taskList", JSON.stringify(tempList))
-        setTaskList(taskList)
-        setModal(false)
+    const saveTask = (taskObj,e) => {
+      // e.preventDefault()
+        db.collection("activeList").add({
+            Name : taskObj.Name,
+            Description : taskObj.Description,
+            Date : taskObj.Date,
+        });
+       activeQuiz();
+       // {<Results />}
     }
     const todayDate = () =>
     {
@@ -69,48 +78,38 @@ const Quiz = () => {
         var yyyy = today.getFullYear();
         return yyyy + '-' + mm + '-' + dd
     }
-    const saveActive = (taskObj) => {
-        let tempList = ActiveList
-        tempList.push(taskObj)
-        localStorage.setItem("activeList", JSON.stringify(tempList))
-        setActiveList(ActiveList)
-    }
-    const deleteActive = (index) => {
+   
+    const deleteActive = (id) => {
        
-        let tempList = ActiveList
-        tempList.splice(index, 1)
-        localStorage.setItem("activeList", JSON.stringify(ActiveList))
-        setActiveList(tempList)
+                db.collection("activeList").doc(id).delete(); 
     }
-    const deleteActiveIcon = (index) => {
+    const deleteActiveIcon = (id) => {
       if(window.confirm("Are you sure?"))
       {
-        let tempList = ActiveList
-        tempList.splice(index, 1)
-        localStorage.setItem("activeList", JSON.stringify(ActiveList))
-        setActiveList(tempList)
-        window.location.reload()    
-
+           
+        db.collection("activeList").doc(id).delete(); 
       } 
      
     }
     
     const saveCompleted = (taskObj) => {
-        let tempList = completedList
-        tempList.push(taskObj)
-        localStorage.setItem("completedList", JSON.stringify(tempList))
-        setCompletedList(tempList)
+        db.collection("completedList").add({
+            Name : taskObj.Name,
+            Description : taskObj.Description,
+            Date : taskObj.Date,
+        });
     }
-    const Results = () => (
+    const Results = (obj) => (
         
         <div id="results" className="task-container">
-            {ActiveList && ActiveList.map((obj , index) => <Card taskObj = {obj} index = {index} deleteActiveIcon = {deleteActiveIcon} updateListArray = {updateListArray} /> )}
+                        {ActiveList && ActiveList.map((obj) => <Card taskObj = {obj} id = {obj.id} deleteActiveIcon = {deleteActiveIcon} updateListArray = {updateListArray} /> )}
+
         </div>
       )
 
     const Complete = () => (
         <div id="results" className="task-container">
-            {completedList && completedList.map((obj , index) => <Card1 taskObj = {obj} index = {index} deleteActiveIcon = {deleteActiveIcon} updateListArray = {updateListArray} /> )}
+            {completedList && completedList.map((obj) => <Card1 taskObj = {obj} id = {obj.id} deleteActiveIcon = {deleteActiveIcon} updateListArray = {updateListArray} /> )}
         </div>
       )
 
@@ -119,17 +118,16 @@ const Quiz = () => {
         setShowActive(true);
         setShowCompleted(false);
 
-        if(taskList !=null){
+        if(ActiveList !=null){
 
-            for(var i=0;i<taskList.length;i++){
+            for(let i=0; i<ActiveList.length;i++){
 
-                const userExists = ActiveList.some((user) => user.Name === taskList[i].Name);
+                if(ActiveList[i].Date < todayDate()){ 
+                    saveCompleted(ActiveList[i])
+                    deleteActive(ActiveList[i].id)  
 
-                if(!userExists && taskList[i].Date >= todayDate()){
-                    
-                    saveActive(taskList[i])
-                    deleteTask(i)
-                }
+                 }
+                
             }
         }
     }
@@ -144,7 +142,7 @@ const Quiz = () => {
                      if (ActiveList[i].Date < todayDate())
                      {
                         saveCompleted(ActiveList[i])
-                        deleteActive(i)
+                        deleteActive(ActiveList[i].id)
                      }
                  }
              }

@@ -5,7 +5,6 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
-    var elements = document.getElementsByClassName('form-control'); 
 
 
     const handleChange = (e) => {
@@ -28,17 +27,19 @@ function resetvalue() {
     document.getElementById("3").innerText=null;
 }
     const handleSave = (e) => {
+      //  resetvalue();
+     // e.preventDefault();
         let taskObj = {}
         taskObj["Name"] = taskName
         taskObj["Description"] = description
         taskObj["Date"] = date
-        resetvalue();
         toggle();
         save(taskObj,e)
 
     }
 
     return (
+
         <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>Create Task</ModalHeader>
             <ModalBody>

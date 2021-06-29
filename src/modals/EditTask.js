@@ -25,6 +25,7 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
     useEffect(() => {
         setTaskName(taskObj.Name)
         setDescription(taskObj.Description)
+        setDate(taskObj.Date)
     },[])
 
     const handleUpdate = (e) => {

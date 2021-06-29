@@ -1,7 +1,7 @@
 import './App.css';
 import Search from './Pages/Search'
 import Quiz from './components/Quiz';
-import Materials from './Pages/Materials';
+import Materials from './upload/Materials';
 import Volunteer from './Pages/Volunteer'
 import Card from './Cards/Cards';
 import { BrowserRouter as  Router,Route, Switch } from "react-router-dom";

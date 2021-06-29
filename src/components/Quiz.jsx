@@ -60,13 +60,16 @@ const Quiz = () => {
         setModal(!modal);
     }
 
-    const saveTask = (taskObj,e) => {
-      // e.preventDefault()
+    const saveTask = (taskObj) => {
         db.collection("activeList").add({
             Name : taskObj.Name,
             Description : taskObj.Description,
             Date : taskObj.Date,
-        });
+        }).then(function() {   
+                window.location.reload();   
+            })
+           
+        
        activeQuiz();
        // {<Results />}
     }

@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import { create, all } from 'mathjs'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Card = ({docObj, id, deleteDoc}) => {
     const [modal, setModal] = useState(false);

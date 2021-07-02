@@ -26,7 +26,7 @@ class Cards extends Component {
                                 <Card imgsrc={img3} title='Quiz' />
                             </td>
                             <td align="center">
-                                <Card imgsrc={img4} title='Volunteer'/>
+                                <Card imgsrc={img4} title='Lecture'/>
                             </td>
                         </tr>
 

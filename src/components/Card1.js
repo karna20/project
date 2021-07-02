@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import EditTask from '../modals/EditTask'
+import './quiz.css';
 
 const Card1 = ({taskObj, id, deleteActiveIcon, updateListArray}) => {
     const [modal, setModal] = useState(false);
@@ -31,10 +32,7 @@ const Card1 = ({taskObj, id, deleteActiveIcon, updateListArray}) => {
             <div class = "task-holder">
                 <span class = "card-header" style={{"background-color": colors[0].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>
                 <p className = "mt-3">Quiz has ended</p>
-
-                <p className = "mt-3"><span>Due Date: </span>{taskObj.Date}</p>
-
-             
+                <p className = "mt-3"><span>Due Date: </span>{taskObj.Date}</p>           
         </div>
         <EditTask modal = {modal} toggle = {toggle} updateTask = {updateTask} taskObj = {taskObj}/>
         </div>

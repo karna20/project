@@ -4,6 +4,7 @@ import CreateTask from '../modals/CreateTask'
 import Card from './Card';
 import Card1 from './Card1';
 import './quiz.css';
+
 const Quiz = () => {
     const [modal, setModal] = useState(false);
    // const [taskList, setTaskList] = useState([])

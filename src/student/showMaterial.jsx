@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { create, all } from 'mathjs'
+import './components/Navbar';
 
 const Card = ({docObj, id}) => {
     const i = Math.floor(Math.random() * 5);
@@ -34,6 +34,7 @@ const Card = ({docObj, id}) => {
     
     
     return (
+        
         <div   class = "card-wrapper mr-5 " style ={{margin:10}}>
             <div class = "card-top" style={{"background-color": colors[i%5].primaryColor}}></div>
             <div class = "task-holder">

@@ -3,6 +3,7 @@ import '../upload/material.css';
 import Card from './showMaterial';
 import {db,storage} from '../firebase.js'
 import {useEffect, useState} from 'react';
+import Navbar from './components/Navbar';
 
 const Materials = () => {
     const [pdfs, setDoc] = useState([])
@@ -32,6 +33,7 @@ const Materials = () => {
 
     return (  
         <>
+        <Navbar/>
         <div className = "header text-center">
         <h3>Materials</h3>
         </div>

@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { db } from '../firebase';
 import CreateLecture from './CreatLecture';
-import '../components/quiz.css';
+import './lecture.css';
 import * as ReactBootStrap from 'react-bootstrap';
-
+import Navbar from '../components/Navbar';
 const Lecture= () => {
     const [modal, setModal] = useState(false);
     const [LectureList, setLectureList] = useState([])
+    const [showLecture,setShowLecture] = useState(false)
     
 
     useEffect(() => {
@@ -18,14 +19,17 @@ const Lecture= () => {
         db.collection("LectureList").onSnapshot(function (querySnapshot){
             setLectureList(
                 querySnapshot.docs.map((doc) =>({
+                    
                 id: doc.id,
                 Name : doc.data().Name,
                 Time : doc.data().Time,
                 Link : doc.data().Link,
-                Date : doc.data().Date
+            
             }))
             );
             }); 
+            console.log(LectureList)
+            
 }
 
     const updateListArray = (obj, id) => {
@@ -65,9 +69,9 @@ const Lecture= () => {
     }
    
     const deleteLecture = (id) => {
-            db.collection("LectureList").doc(id).delete(); 
+       
+                db.collection("LectureList").doc(id).delete(); 
     }
-
     const deleteLectureIcon = (id) => {
       if(window.confirm("Are you sure?"))
       {
@@ -80,6 +84,8 @@ const Lecture= () => {
 
     const activeLecture = () =>
     {
+    
+        console.log(LectureList)
         if(LectureList !=null){
 
             for(let i=0; i<LectureList.length;i++){
@@ -87,31 +93,34 @@ const Lecture= () => {
                 if(LectureList[i].Date < todayDate()){ 
                     deleteLecture(LectureList[i].id)  
 
-                 } 
+                 }
+                
             }
         }
     }
 
     const renderLecture=(LectureList,index)=>{
-            return(
+        return(
             <tr key={index}>
                 <td>{LectureList.Name}</td>
                 <td>{LectureList.Time}</td>
                 <td><a href={LectureList.Link}>{LectureList.Link}</a></td>
                 <td><button type="button" class="btn btn-danger" onClick={() =>deleteLectureIcon(LectureList.id)}>X</button></td>
+            
             </tr>
-            );      
+        )
     }
     
 
     return (
         <>
+        <Navbar/>
             <div className = "header text-center">
                 <h3>Lecture</h3>
                 <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Lecture</button>
                 
             </div>
-
+    
             <div className = "task-container">
                 <ReactBootStrap.Table striped bordered hover height="50">
                     <thead>
@@ -123,7 +132,9 @@ const Lecture= () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {LectureList!=0 && LectureList.map(renderLecture)}
+                        
+                    {LectureList!=0 && LectureList.map(renderLecture)} 
+                    
                     </tbody>
                 </ReactBootStrap.Table>
                 
@@ -134,4 +145,5 @@ const Lecture= () => {
         </>
     );
 };
+
 export default Lecture;

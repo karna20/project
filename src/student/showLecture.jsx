@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import { db } from '../firebase';
 import * as ReactBootStrap from 'react-bootstrap';
-
+import Navbar from './components/Navbar';
 const Lecture= () => {
     const [LectureList, setLectureList] = useState([])
     
 
     useEffect(() => {
-        getLectureList();
+        // getLectureList();
         activeLecture();
+        getLectureList();
           },[])
     
     function getLectureList()
@@ -68,6 +69,7 @@ const Lecture= () => {
 
     return (
         <>
+        <Navbar/>
             <div className = "header text-center">
                 <h3>Today's Schedule ({todayDate()})</h3>           
             </div>

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { create, all } from 'mathjs'
 
 
 const Card = ({taskObj, id}) => {

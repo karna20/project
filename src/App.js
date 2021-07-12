@@ -1,29 +1,49 @@
-import './App.css';
-import Search from './Pages/Search'
+// import './App.css';
+import { BrowserRouter as  Router,Route, Switch } from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+
+// Admin Side
+import Search from './Pages/UserList'
 import Quiz from './components/Quiz';
 import Materials from './upload/Materials';
-import Lecture from './Lecture/Lecture'
-import Card from './Cards/Cards';
-import studentCard from './student/Cards/studentCards'
-import studentQuiz from './student/showQuiz'
-import studentMaterial from './student/Materials'
-import studentLecture from './student/showLecture'
+import Lecture from './Pages/Lecture'
+import Navbar from './components/Navbar';
+import Register from './auth/Register';
+//Dark light theme
 
-import { BrowserRouter as  Router,Route, Switch } from "react-router-dom";
+// Student Side
+import StudentCard from './student/Cards/studentCards'
+import StudentLecture from './student/showLecture'
+import StudentQuiz from './student/showQuiz'
+import StudentMaterial from './student/Materials'
+import StudentHome from './student'
+import Admin from './admin'
+
+import Login from './auth/Login'
+
 function App() {
+
   return (
+
     <Router>
+       
     <Switch>
-      {/* <Route exact path='/' component={Card}/> */}
-      {/* <Route exact path='/search' component={Search}/>
+     {/* // Admin Side */}
+      <Route exact path='/register' component={Register}/>
+      <Route exact path='/' component={Login}/>
+      <Route exact path='/admin' component={Admin}/>
+      <Route exact path='/search' component={Search}/>
       <Route exact path='/quiz' component={Quiz}/>
       <Route exact path='/materials' component={Materials}/>
-      <Route exact path='/lecture' component={Lecture}/> */}
+      <Route exact path='/lecture' component={Lecture}/>
 
-      <Route exact path='/' component ={studentCard}/>
-      <Route exact path='/Quiz' component ={studentQuiz}/>
-      <Route exact path='/Lectures' component ={studentLecture}/>
-      <Route exact path='/Materials' component ={studentMaterial}/>
+
+      <Route exact path='/home' component={StudentHome}/>
+      <Route exact path='/studentmaterials' component={StudentMaterial}/>
+      <Route exact path='/studentquiz' component={StudentQuiz}/>
+      <Route exact path='/studentlecture' component={StudentLecture}/>
+
+
     </Switch>
   </Router>
   );

@@ -15,7 +15,7 @@ class Cards extends Component {
                     <table cellPadding="20" cellSpacing="20">
                         <tr>
                             <td align="center">
-                                <Card imgsrc={img1} title='Search' />
+                                <Card imgsrc={img1} title='UserList' />
                             </td>
                             <td align="center">
                                 <Card imgsrc={img2} title='Materials' />

@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import { create, all } from 'mathjs'
 import EditTask from '../modals/EditTask'
-
 
 const Card = ({taskObj, id, deleteActiveIcon, updateListArray}) => {
     const [modal, setModal] = useState(false);
@@ -43,15 +41,14 @@ const Card = ({taskObj, id, deleteActiveIcon, updateListArray}) => {
     }
     
     return (
-        <div class = "card-wrapper mr-5 " style ={{margin:10,width:225,height:160}}>
+        <div class = "card-wrapper mr-3" style ={{margin:10,height:160,width:260}}>
             <div class = "card-top" style={{"background-color": colors[i%5].primaryColor}}></div>
             <div class = "task-holder">
                 <span class = "card-header" style={{"background-color": colors[i%5].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>
-                {/* <p className = "mt-3">{taskObj.Description}</p> */}
                 <a className = "mt-3" href={taskObj.Description}>Google form Link</a>
-                <p className = "mt-3"><span>Date: </span>{taskObj.Date}</p>
-                
-                <div style={{"position": "absolute", "right" : "15px", "bottom" : "2px"}}>
+                <p className = "mt-3">Date:{taskObj.Date}</p>
+                {/* {checkActiveStatus()} */}
+                <div style={{"position": "absolute", "right" : "10px", "bottom" : "10px"}}>
                     <i class = "far fa-edit mr-3" style={{"color" : colors[i%5].primaryColor, "cursor" : "pointer",paddingRight : 10}} onClick = {() => setModal(true)}></i>
                     <i class="fas fa-trash-alt" style = {{"color" : colors[i%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i>
                 </div>

@@ -3,14 +3,14 @@ import { db } from '../firebase';
 import CreateTask from '../modals/CreateTask'
 import Card from './Card';
 import Card1 from './Card1';
+import Navbar from './Navbar';
 import './quiz.css';
-
 const Quiz = () => {
     const [modal, setModal] = useState(false);
    // const [taskList, setTaskList] = useState([])
     const [ActiveList, setActiveList] = useState([])
     const [completedList, setCompletedList] = useState([])
-    const [showActive,setShowActive] = useState(false)
+    const [showActive,setShowActive] = useState(true)
     const [showCompleted,setShowCompleted] = useState(false)
     
 
@@ -67,7 +67,7 @@ const Quiz = () => {
             Description : taskObj.Description,
             Date : taskObj.Date,
         }).then(function() {   
-                window.location.reload();   
+                //window.location.reload();   
             })
            
         
@@ -156,14 +156,27 @@ const Quiz = () => {
 
     return (
         <>
+        <Navbar/>
             <div className = "header text-center">
                 <h3>Quiz</h3>
                 <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Quiz</button>
                 
             </div>
-            <input type="radio" value="Active" name="gender" onClick = {activeQuiz} /> Active 
-           &nbsp;
-            <input type="radio" value="Completed" onClick = {completedQuiz} name="gender"/> Completed
+            <div className = "text-center">
+            <button type="submit" name="partyInfo" onClick = {activeQuiz} style={{"margin-bottom": 15},{"margin-left": 15}}
+                                    class="btn btn-primary mt-2 float-left">
+
+                                Active
+
+                            </button>
+                            
+                            <button type="submit" name="partyInfo" onClick = {completedQuiz} style={{"margin-bottom": 15},{"margin-left": 15}}
+                                    class="btn btn-primary mt-2 float-left">
+
+                                Completed
+
+                            </button>
+                            </div>
             <div className = "task-container">
             {/* {taskList && taskList.map((obj , index) => <Card taskObj = {obj} index = {index} deleteTask = {deleteTask} updateListArray = {updateListArray}/> )} */}
             {showActive ? <Results /> : null}

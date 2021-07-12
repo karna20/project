@@ -4,7 +4,7 @@ import './material.css';
 import Card from './showupload';
 import {db,storage} from '../firebase'
 import {useEffect, useState} from 'react';
-
+import Navbar from '../components/Navbar';
 const Materials = () => {
     const [modal, setModal] = useState(false);
     const [pdfs, setDoc] = useState([])
@@ -54,6 +54,7 @@ const Materials = () => {
 
     return (  
         <>
+        <Navbar/>
         <div className = "header text-center">
         <h3>Materials</h3>
         <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Upload Material</button>

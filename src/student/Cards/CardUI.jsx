@@ -13,7 +13,7 @@ const Card =props =>{
                 }}/>
             </div>
             <div className="card-body text-dark">
-                <h4 className="card-title">{props.title}</h4>
+                <h4 className="card-title">{props.title.substring(7,props.title.length)}</h4>
             </div>
         </div>
     );

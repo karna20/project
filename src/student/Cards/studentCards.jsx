@@ -14,15 +14,13 @@ class Cards extends Component {
                     <table cellPadding="20" cellSpacing="20">
                         <tr>
                             <td align="center">
-                                <Card imgsrc={img2} title='Materials' />
-                            </td>
-                        
-                       
-                            <td align="center">
-                                <Card imgsrc={img3} title='Quiz' />
+                                <Card imgsrc={img2} title='studentmaterials' />
                             </td>
                             <td align="center">
-                                <Card imgsrc={img4} title='Lectures'/>
+                                <Card imgsrc={img3} title='studentquiz' />
+                            </td>
+                            <td align="center">
+                                <Card imgsrc={img4} title='studentlecture'/>
                             </td>
 
                             </tr>

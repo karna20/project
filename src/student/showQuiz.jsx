@@ -3,6 +3,7 @@ import { db } from '../firebase';
 import Card from './Card';
 import Card1 from './Card1';
 import './quiz.css';
+import Navbar from './components/Navbar';
 
 const Quiz = () => {
     const [ActiveList, setActiveList] = useState([])
@@ -119,12 +120,25 @@ const Quiz = () => {
 
     return (
         <>
+        <Navbar/>
             <div className = "header text-center">
                 <h3>Quiz</h3>                
             </div>
-            <input type="radio" value="Active" name="gender" onClick = {activeQuiz} checked /> Active 
-           &nbsp;
-            <input type="radio" value="Completed" onClick = {completedQuiz} name="gender"/> Completed
+            <button type="submit" name="partyInfo" onClick = {activeQuiz} style={{"margin-bottom": 15},{"margin-left": 15}}
+                                    class="btn btn-primary mt-2 float-left">
+
+                                Active
+
+                            </button>
+                            
+                            <button type="submit" name="partyInfo" onClick = {completedQuiz} style={{"margin-bottom": 15},{"margin-left": 15}}
+                                    class="btn btn-primary mt-2 float-left">
+
+                                Completed
+
+                            </button>
+                           
+            
             <div className = "task-container">
             {showActive ? <Results /> : null}
             {showCompleted ? <Complete /> : null}

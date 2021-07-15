@@ -1,0 +1,68 @@
+.whole-div {
+  display: flex;
+  /* background-color: purple; */
+  justify-content: space-around;
+  width: 100%;
+  margin: 15px auto;
+}
+.firsthordiv {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 20%;
+  text-align: left;
+}
+.secondhordiv {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  text-align: left;
+}
+.toolicon {
+  height: 45px;
+  width: 45px;
+}
+.title {
+  height: 20%;
+}
+.details {
+  height: 80%;
+}
+@media screen and (max-width: 768px) {
+  .whole-div {
+    /* background-color: red; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .whole-div {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .details {
+    height: 80%;
+    width: 100%;
+    text-align:center;
+    margin-top: 10px;
+    /* background-color: red; */
+  }
+  .title{
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .toolicon{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 10px;
+  }
+}

@@ -20,19 +20,19 @@ const Login = () => {
   const history = useHistory();
    var role1 = "";
   
-   useEffect(() => {
-    if(secureStorage.getItem("user"))
-    {
-        const user =  secureStorage.getItem("user");
-        if(user.role==="Student")
-        {
-            history.push("/home")
-        }
-        if(user.role==="Admin"){
-            history.push("/admin")
-        }
-    }
-}, []);
+//    useEffect(() => {
+//     if(secureStorage.getItem("user"))
+//     {
+//         const user =  secureStorage.getItem("user");
+//         if(user.role==="Student")
+//         {
+//             history.push("/home")
+//         }
+//         if(user.role==="Admin"){
+//             history.push("/admin")
+//         }
+//     }
+// }, []);
 
 
   async function advancedLogin(email) {
@@ -129,7 +129,6 @@ const Login = () => {
         <input
           type="text"
           required
-          autoFocus
           value={user.email}
           name = "email"
           onChange={handleChange}
@@ -146,7 +145,7 @@ const Login = () => {
         <p className="errorMsg">{error.passwordError}</p>
 
         <div className="btnContainer">
-          <button onClick={handleLogin} style = {{"width":"100%"}}>Sign In</button>
+          <button onClick={handleLogin} className="button" style = {{"width":"100%"}}><span>Sign In</span></button>
 
           <p>
             Don't have an account? &nbsp;

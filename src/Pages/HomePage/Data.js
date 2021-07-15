@@ -21,10 +21,10 @@ export const homeObjTwo = {
   lightTopLine: true,
   lightText: true,
   lightTextDesc: true,
-  topLine: "Upcoming Events",
-  headline: "Extremely quick onboarding process",
+  // topLine: "About Us",
+  headline: "About Us",
   description:
-    "Once you've joined, our team of specialist will reach out to you and get you set up in minutes.",
+    "Our mission is to produce the sensitive, laborious, dynamic, patriotic and spiritual leaders for bringing up perfect global amity.",
   buttonLabel: "Learn More",
   imgStart: "",
   img: require("../../images/svg-2.svg").default,
@@ -38,11 +38,11 @@ export const homeObjThree = {
   lightTopLine: true,
   lightText: true,
   lightTextDesc: true,
-  topLine: "News Section",
+  // topLine: "News Section",
   headline:
-    "Ultra helped me increase my revenue by over 3X in less than 3 months!",
+    "Contact Us",
   description:
-    "Their team is wonderful! I can't believe I didn't start working with them earlier.",
+    "Contact us for any query regarding our services!",
   buttonLabel: "View Case Study",
   imgStart: "start",
   img: require("../../images/svg-3.svg").default,

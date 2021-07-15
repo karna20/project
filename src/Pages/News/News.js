@@ -1,11 +1,14 @@
 import React from "react";
-import Card from "../../components/Cards/Cards";
-import NewsCard from "../../components/NewsCards/NewsCard";
-
+import { homeObjThree } from "../HomePage/Data";
+import InfoSection from "../../components/InfoSection/InfoSection";
+import ContactUsForm from "../../components/ContactusFrom/ContactUsForm";
+import Navbar from "../../components/NavigationBar/NavBar";
 const News = () => {
   return (
     <>
-      <NewsCard />
+    <Navbar/>
+      <InfoSection {...homeObjThree} />
+      <ContactUsForm />
     </>
   );
 };

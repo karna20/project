@@ -19,29 +19,26 @@ const Student = () => {
 			<div class="row mb-3">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-column align-items-center text-center">
+						<div class="row mb-5">
+						<div class="d-flex flex-column align-items-center text-center">
 								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110"/>
 								<div class="mt-3">
 									<h4>{name}</h4>
 									
 								</div>
 							</div>
-							
 						</div>
-					</div>
-					<div class="card">
-						<div class="card-body">
-							<div class="row mb-4">
+							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">First Name</h6>
+									<h6 class="mb-0">First Name:</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<input type="text" class="form-control" value={user.name} readOnly/>
 								</div>
 							</div>
-                            <div class="row mb-4">
+                            <div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Last Name</h6>
+									<h6 class="mb-0">Last Name:</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<input type="text" class="form-control" value={user.surname} readOnly/>
@@ -49,7 +46,7 @@ const Student = () => {
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Email</h6>
+									<h6 class="mb-0">Email:</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<input type="text" class="form-control" value={user.email} readOnly/>
@@ -57,7 +54,7 @@ const Student = () => {
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Phone Number</h6>
+									<h6 class="mb-0">Phone Number:</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<input type="text" class="form-control" value={user.number} readOnly/>

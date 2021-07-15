@@ -14,12 +14,12 @@ const Card1 = ({taskObj, id}) => {
 
     
     return (
-        <div class = "card-wrapper mr-5 " style ={{margin:10}}>
+        <div class = "card-wrapper mr-5 " style ={{margin:10,width:225,height:160}}>
             <div class = "card-top" style={{"background-color": colors[0].primaryColor}}></div>
             <div class = "task-holder">
                 <span class = "card-header" style={{"background-color": colors[0].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>
                 <p className = "mt-3">Quiz has ended</p>
-                <p className = "mt-3"><span>Due Date: </span>{taskObj.Date}</p>           
+                <p className = "mt-3">Due Date: {taskObj.Date}</p>           
         </div>
         </div>
     );

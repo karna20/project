@@ -59,7 +59,7 @@ const UploadDoc = ({modal, toggle, save}) => {
     return (
 
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Upload file</ModalHeader>
+            <ModalHeader>Upload file</ModalHeader>
             <ModalBody>
                     <div className = "form-group">
                         <label>Task Name</label>
@@ -71,7 +71,7 @@ const UploadDoc = ({modal, toggle, save}) => {
             </ModalBody>
             <ModalFooter>
             <Button type = "submit"  color="primary" onClick={uploadFile}>Upload</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button color="danger" onClick={toggle}>Cancel</Button>
             </ModalFooter>
       </Modal>
     );

@@ -43,7 +43,8 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
 
     return (
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+        
+            <ModalHeader closeButton>Create Task</ModalHeader>
             <ModalBody>
                     <div className = "form-group">
                         <label>Task Name</label>
@@ -55,12 +56,12 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
                     </div>
                     <div className = "form-group">
                         <label>Description</label>
-                        <textarea rows = "5" className = "form-control" value = {description} onChange = {handleChange} name = "description" required></textarea>
+                        <textarea rows = "1" className = "form-control" value = {description} onChange = {handleChange} name = "description" required></textarea>
                     </div>
             </ModalBody>
             <ModalFooter>
-            <Button type = "submit"  color="primary" onClick={handleSave}>Create</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button type = "submit"  color="#24a0ed" onClick={handleSave}>Create</Button>{' '}
+            <Button color="danger" onClick={toggle}>Cancel</Button>
             </ModalFooter>
       </Modal>
     );

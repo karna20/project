@@ -40,7 +40,7 @@ const CreateLecturePopup = ({modal, toggle, save}) => {
 
     return (
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Create Lecture</ModalHeader>
+            <ModalHeader >Create Lecture</ModalHeader>
             <ModalBody>
                     <div className = "form-group">
                         <label>Subject Name</label>
@@ -57,7 +57,7 @@ const CreateLecturePopup = ({modal, toggle, save}) => {
             </ModalBody>
             <ModalFooter>
             <Button type = "submit"  color="primary" onClick={handleSave}>Create</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button color="danger" onClick={toggle}>Cancel</Button>
             </ModalFooter>
       </Modal>
     );

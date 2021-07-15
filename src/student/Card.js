@@ -35,7 +35,7 @@ const Card = ({taskObj, id}) => {
                 <span class = "card-header" style={{"background-color": colors[i%5].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>
                 {/* <p className = "mt-3">{taskObj.Description}</p> */}
                 <a className = "mt-3" href={taskObj.Description}>Google form Link</a>
-                <p className = "mt-3"><span>Date: </span>{taskObj.Date}</p>
+                <p className = "mt-3">Date: {taskObj.Date}</p>
                
         </div>
         </div>

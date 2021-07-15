@@ -50,3 +50,8 @@
   background-color: #F6F7F8;
   padding : 50px 50px;
 }
+.btn{
+  background-color: #24a0ed;
+  color: wheat;
+  font-weight: bold;
+}

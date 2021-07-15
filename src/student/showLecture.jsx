@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { db } from '../firebase';
 import * as ReactBootStrap from 'react-bootstrap';
 import Navbar from './components/Navbar';
+import './lecture.css'
 const Lecture= () => {
     const [LectureList, setLectureList] = useState([])
     
@@ -76,7 +77,7 @@ const Lecture= () => {
 
             <div className = "task-container">
                 <ReactBootStrap.Table striped bordered hover height="50">
-                    <thead>
+                    <thead className="tabhd">
                         <tr>
                             <th>Subject Name</th>
                             <th>Time</th>

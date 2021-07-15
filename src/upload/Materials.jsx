@@ -57,7 +57,7 @@ const Materials = () => {
         <Navbar/>
         <div className = "header text-center">
         <h3>Materials</h3>
-        <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Upload Material</button>
+        <button className = "btn mt-2" onClick = {() => setModal(true)} >Upload Material</button>
     </div>
     
     <div className = "task-container">

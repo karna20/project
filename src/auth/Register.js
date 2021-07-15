@@ -41,7 +41,7 @@ const saveUser = () =>
         })
 
         .then(() => {
-            history.push("/")
+            history.push("/login")
         })
         .catch((error) => {
           alert(error.message);
@@ -102,7 +102,6 @@ const saveUser = () =>
       <input
         type="text"
         required
-        autoFocus
         value={user.name}
         name = "name"
         onChange={handleChange}
@@ -112,7 +111,6 @@ const saveUser = () =>
       <input
         type="text"
         required
-        autoFocus
         value={user.surname}
         name = "surname"
         onChange={handleChange}
@@ -123,7 +121,6 @@ const saveUser = () =>
       <input
         type="tel"
         required
-        autoFocus
         value={user.number}
         name = "number"
         onChange={handleChange}
@@ -133,7 +130,6 @@ const saveUser = () =>
       <input
         type="text"
         required
-        autoFocus
         value={user.email}
         name = "email"
         onChange={handleChange}
@@ -150,11 +146,11 @@ const saveUser = () =>
       <p className="errorMsg">{error.passwordError}</p>
 
       <div className="btnContainer">
-        <button  type = "submit" style = {{"width":"100%"}} onClick={handleSignup}>Sign Up</button>
+        <button  type = "submit" className="button" style = {{"width":"100%"}} onClick={handleSignup}><span>Sign Up</span></button>
 
         <p>
         Already have an account?  &nbsp;
-          <Link to="/" >Sign In</Link>
+          <Link to="/login" >Sign In</Link>
         </p>
       </div>
       </form>

@@ -7,7 +7,9 @@ const UserList= () => {
     const [modal, setModal] = useState(false);
     const [Users, setUsers] = useState([])
     const [serachTerm, setsearchTerm]=useState([])
-   
+    // const [showLecture,setShowLecture] = useState(false)
+    // let searchArray=[]
+
     useEffect(() => {
         getUsers();
           },[])
@@ -51,6 +53,13 @@ const UserList= () => {
             </tr>
         )
     }
+    // const onChangeHandler=(e)=>{
+    //     let newArray=searchArray.filter((Users)=>{
+    //         let serachValue=Users.Name.toLowerCase();
+    //         return serachValue.indexOf(e.target.value)!==-1;
+    //     });
+        
+    // }
     
 
     return (
@@ -60,11 +69,11 @@ const UserList= () => {
                 <h3>UserList</h3>
                 
             </div>
-            <input type="text" onChange={(e)=>{setsearchTerm(e.target.value)}} placeholder="Search Name..." style={{float:'left',width:'31%',marginTop:15,borderColor:'#000',borderWidth:1}}/>
+            <input type="text" onChange={(e)=>{setsearchTerm(e.target.value)}} placeholder="Search Name..." style={{width:'20%',height:'40px',marginTop:15,marginLeft:1150,borderColor:'#000',borderWidth:3}}/>
             <div className = "task-container">
                 
                 <ReactBootStrap.Table striped bordered hover height="50">
-                    <thead>
+                    <thead className="tabhd">
                         <tr>
                             <th>Name</th>
                             <th>Surname</th>

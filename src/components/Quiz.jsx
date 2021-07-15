@@ -67,7 +67,7 @@ const Quiz = () => {
             Description : taskObj.Description,
             Date : taskObj.Date,
         }).then(function() {   
-                //window.location.reload();   
+                window.location.reload();   
             })
            
         
@@ -159,19 +159,19 @@ const Quiz = () => {
         <Navbar/>
             <div className = "header text-center">
                 <h3>Quiz</h3>
-                <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Quiz</button>
+                <button className = "btn mt-2" onClick = {() => setModal(true)} >Create Quiz</button>
                 
             </div>
             <div className = "text-center">
             <button type="submit" name="partyInfo" onClick = {activeQuiz} style={{"margin-bottom": 15},{"margin-left": 15}}
-                                    class="btn btn-primary mt-2 float-left">
+                                    class="btn mt-2 float-left">
 
                                 Active
 
                             </button>
                             
                             <button type="submit" name="partyInfo" onClick = {completedQuiz} style={{"margin-bottom": 15},{"margin-left": 15}}
-                                    class="btn btn-primary mt-2 float-left">
+                                    class="btn mt-2 float-left">
 
                                 Completed
 

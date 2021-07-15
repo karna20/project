@@ -117,13 +117,13 @@ const Lecture= () => {
         <Navbar/>
             <div className = "header text-center">
                 <h3>Lecture</h3>
-                <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Lecture</button>
+                <button className = "btn mt-2" onClick = {() => setModal(true)} >Create Lecture</button>
                 
             </div>
     
             <div className = "task-container">
                 <ReactBootStrap.Table striped bordered hover height="50">
-                    <thead>
+                    <thead className="tabhd">
                         <tr>
                             <th>Subject Name</th>
                             <th>Time</th>

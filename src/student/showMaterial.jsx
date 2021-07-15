@@ -35,7 +35,7 @@ const Card = ({docObj, id}) => {
     
     return (
         
-        <div   class = "card-wrapper mr-5 " style ={{margin:10}}>
+        <div   class = "card-wrapper mr-5 " style ={{margin:10,width:225,height:160}}>
             <div class = "card-top" style={{"background-color": colors[i%5].primaryColor}}></div>
             <div class = "task-holder">
                 <span class = "card-header" style={{"background-color": colors[i%5].secondaryColor, "border-radius": "10px"}}>{docObj.Name}</span>

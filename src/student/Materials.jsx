@@ -1,5 +1,5 @@
 import React from 'react';
-import '../upload/material.css';
+import './quiz.css';
 import Card from './showMaterial';
 import {db,storage} from '../firebase.js'
 import {useEffect, useState} from 'react';

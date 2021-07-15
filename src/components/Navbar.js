@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <button onClick = {handleLogOut} >Logout</button>
+          <button onClick = {handleLogOut} className="button_slide">Logout</button>
 
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

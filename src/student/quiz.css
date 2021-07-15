@@ -50,5 +50,9 @@
     background-color: #F6F7F8;
     padding : 10px 10px;
   }
-
+  .btn{
+    background-color: #24a0ed;
+    color: wheat;
+    font-weight: bold;
+}
 

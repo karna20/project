@@ -17,7 +17,7 @@ var secureStorage = new SecureStorage(localStorage, {
     },
     decrypt: function decrypt(data) {
         data = CryptoJS.AES.decrypt(data, SECRET_KEY);
- 
+
         data = data.toString(CryptoJS.enc.Utf8);
  
         return data;
